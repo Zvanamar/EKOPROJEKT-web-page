@@ -50,7 +50,9 @@ body {
   width: auto;
   transition: var(--transition);
 }
-
+.dark-mode img.logo {
+  filter: invert(0) brightness(1);
+}
 .main-nav ul {
   display: flex;
   list-style: none;
@@ -116,18 +118,6 @@ body {
   transform: translateY(-1px);
 }
 
-
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .eko-header {
-    padding: 1rem 2rem;
-  }
-  
-  .main-nav ul {
-    gap: 1.5rem;
-  }
-}
 
 .dialog {
   display: none;
@@ -239,20 +229,3 @@ body {
     background-color: var(--primary-dark);
   }
   
-  /* Responsive */
-  @media (max-width: 600px) {
-    .dialog-content {
-      width: 90%;
-      padding: 1.5rem;
-    }
-  }
-@media (max-width: 768px) {
-  .main-nav {
-    display: none; /* Would be replaced with hamburger menu in mobile */
-  }
-  
-.auth-buttons {
-    margin-left: auto;
-    margin-right: 1rem;
-  }
-}
