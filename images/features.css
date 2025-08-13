@@ -1,0 +1,39 @@
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 2rem 0;
+}
+
+.images{
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  overflow: visible;
+}
+.features-img-1{
+  height: auto;
+  width: 40%;
+  transition: var(--transition);
+  overflow: visible;
+  padding: 0px 60px;
+}
+
+.feature {
+  width: 45%;
+  margin: 1rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.feature h3 {
+  color: #2c3e50;
+  margin-bottom: 0.8rem;
+}
+
+.feature p {
+  color: #7f8c8d;
+  line-height: 1.5;
+}

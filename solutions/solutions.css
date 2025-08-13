@@ -1,0 +1,41 @@
+
+main {
+  display: flex;
+  margin: 2rem 0;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.logo-item {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #fff;
+  filter: grayscale(100%);
+}
+
+.logo-item img:hover {
+  filter: grayscale(0%);
+}
+
+.logo-item img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+}
+
+.logo-item img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
