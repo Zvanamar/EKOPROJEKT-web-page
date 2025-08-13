@@ -1,7 +1,7 @@
 /* Base Styles */
 :root {
   color-scheme: only light;
-  --body-background: #f5f7fa;
+  --body-background: #ffffff00;
   --primary-color: #2E7D32;  /* Professional green shade */
   --primary-dark: #1B5E20;
   --primary-light: #81C784;
@@ -24,7 +24,17 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+#video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Place behind other content */
+    overflow: hidden;
+}
 /* Header Styles */
 .eko-header {
   display: flex;
