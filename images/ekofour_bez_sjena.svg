@@ -19,6 +19,14 @@
    xmlns:svg="http://www.w3.org/2000/svg"><defs
    id="defs9563"><linearGradient
    inkscape:collect="always"
+   id="linearGradient1270"><stop
+     style="stop-color:#000000;stop-opacity:1;"
+     offset="0"
+     id="stop1266" /><stop
+     style="stop-color:#000000;stop-opacity:0;"
+     offset="1"
+     id="stop1268" /></linearGradient><linearGradient
+   inkscape:collect="always"
    id="linearGradient8537"><stop
      style="stop-color:#5b9bda;stop-opacity:1;"
      offset="0.44534659"
@@ -48,7 +56,7 @@
      offset="0"
      id="stop7969" /><stop
      style="stop-color:#5d9bd8;stop-opacity:0;"
-     offset="0"
+     offset="1"
      id="stop7971" /></linearGradient><linearGradient
    inkscape:collect="always"
    id="linearGradient7965"><stop
@@ -171,10 +179,10 @@
    style="color-interpolation-filters:sRGB"
    inkscape:label="Drop Shadow"
    id="filter1216"
-   x="-17.17476"
-   y="-30.095465"
-   width="71.630046"
-   height="60.731186"><feFlood
+   x="-17.745169"
+   y="-34.464118"
+   width="73.976029"
+   height="69.401607"><feFlood
      flood-opacity="0.498039"
      flood-color="rgb(0,0,0)"
      result="flood"
@@ -356,6 +364,14 @@
    y1="630.2"
    x2="1758.7"
    y2="630.2"
+   gradientUnits="userSpaceOnUse" /><linearGradient
+   inkscape:collect="always"
+   xlink:href="#linearGradient1270"
+   id="linearGradient1272"
+   x1="981.275"
+   y1="1394.55"
+   x2="1758.4"
+   y2="1394.55"
    gradientUnits="userSpaceOnUse" /></defs><sodipodi:namedview
    id="namedview9561"
    pagecolor="#ffffff"
@@ -367,14 +383,14 @@
    inkscape:deskcolor="#d1d1d1"
    showgrid="false"
    inkscape:zoom="0.42099999"
-   inkscape:cx="756.53208"
-   inkscape:cy="877.67223"
+   inkscape:cx="758.90738"
+   inkscape:cy="880.04753"
    inkscape:window-width="1854"
    inkscape:window-height="1011"
    inkscape:window-x="66"
    inkscape:window-y="32"
    inkscape:window-maximized="1"
-   inkscape:current-layer="svg9559" />
+   inkscape:current-layer="br" />
 <style
    type="text/css"
    id="style2">
@@ -388,6 +404,9 @@
    #tr, #tl, #bl, #br {
       transition: transform 0.35s ease;
       transform-origin: center;
+
+  backface-visibility: hidden;
+  will-change: transform;
   }
 
 
@@ -4479,7 +4498,7 @@
 			
 				<use
    xlink:href="#SVGID_00000111172989376971904010000006895990128580673425_"
-   style="overflow:visible;fill:url(#SVGID_00000119795990377267348640000006488251413797249977_)"
+   style="overflow:visible;fill:url(#linearGradient1272);fill-opacity:1"
    id="use9179" />
 			<clipPath
    id="SVGID_00000120555607865053197010000006371301457174173352_">

@@ -25,10 +25,9 @@
       </div>
     </header> 
     
-    <video id="video-background" autoplay loop muted>
-        <source src="images/video.webm" type="video/webm">
-        <!-- Fallback for unsupported browsers -->
-        Your browser does not support the video tag.
+    <video id="video-background" autoplay loop muted playsinline preload="auto" disablepictureinpicture poster="images/poster.jpg">
+      <source src="images/video.webm" type="video/webm">
+      Your browser does not support the video tag.
     </video>
     
     <main>
@@ -88,42 +87,64 @@
 
 
 <script>
+window.addEventListener('load', function() {
+    const video = document.getElementById('video-background');
+    video.src = 'images/video.webm';
+    video.load();
+});
+document.addEventListener('DOMContentLoaded', function() {
+  // Handle contact form elements
+  const demoBtn = document.getElementById('demo-btn');
+  if (demoBtn) {
+    demoBtn.addEventListener('click', function() {
+      const dialog = document.getElementById('contactDialog');
+      if (dialog) dialog.style.display = 'flex';
+    });
+  }
 
-    document.getElementById('demo-btn').addEventListener('click', function() {
-    document.getElementById('contactDialog').style.display = 'flex';
-  });
+  const cancelBtn = document.getElementById('cancelBtn');
+  if (cancelBtn) {
+    cancelBtn.addEventListener('click', function() {
+      const dialog = document.getElementById('contactDialog');
+      if (dialog) dialog.style.display = 'none';
+    });
+  }
 
-  document.getElementById('cancelBtn').addEventListener('click', function() {
-    document.getElementById('contactDialog').style.display = 'none';
-  });
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const message = document.getElementById('message').value;
+      console.log({email, phone, message});
+      document.getElementById('contactDialog').style.display = 'none';
+      alert('Message sent! (This is just a demo)');
+    });
+  }
 
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const message = document.getElementById('message').value;
-    
-    // Here you would send the data to your backend
-    console.log({email, phone, message});
-    
-    // For now, just close the dialog
-    document.getElementById('contactDialog').style.display = 'none';
-    alert('Message sent! (This is just a demo)');
-  });
-  
-  document.getElementById('svg-object').addEventListener('load', function() {
+  // Handle SVG
+  const svgObject = document.getElementById('svg-object');
+  if (svgObject) {
+    if (svgObject.contentDocument) {
+      initSVG();
+    } else {
+      svgObject.addEventListener('load', initSVG);
+    }
+  }
+
+  function initSVG() {
     try {
-      const svgDoc = this.getSVGDocument();
+      const svgDoc = document.getElementById('svg-object').getSVGDocument();
       if (!svgDoc) {
-        console.error("Couldn't access SVG document - same-origin issue?");
+        console.error("Couldn't access SVG document");
         return;
       }
       
       [['tr','KTM'], ['tl','LGC'], ['bl','EDM'], ['br','CBM']].forEach(id => {
         const group = svgDoc.getElementById(id[0]);
-        const division = document.getElementById(id[1])
-        if (group) {
+        const division = document.getElementById(id[1]);
+        if (group && division) {
           group.addEventListener('mouseover', () => {
             division.classList.add('active');
             group.setAttribute('transform', 'scale(1.02)');
@@ -132,13 +153,11 @@
             division.classList.remove('active');
             group.setAttribute('transform', 'scale(1)');
           });
-        } else {
-          console.warn(`Element #${id} not found in SVG`);
         }
       });
     } catch (e) {
-      console.error("Error working with SVG:", e);
+      console.error("SVG Error:", e);
     }
-  });
-
+  }
+});
 </script>
