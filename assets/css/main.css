@@ -1207,7 +1207,7 @@ input, select, textarea {
 	}
 
 		#wrapper:before {
-			content: '';
+			/* content: ''; */
 			display: block;
 		}
 
