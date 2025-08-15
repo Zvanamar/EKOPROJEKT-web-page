@@ -113,7 +113,7 @@ top: 32%;
 }
 
 .pricing-header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--primary-dark);
     margin-bottom: 1rem;
 }
@@ -239,9 +239,25 @@ top: 32%;
     color: var(--primary-dark);
 }
 
-@media (max-width: 768px) {
-    .pricing-cards {
-        flex-direction: column;
-        align-items: center;
-    }
+@media screen and (max-width: 1680px) {
+		}
+
+@media screen and (max-width: 768) {
+
+  .pricing-cards {
+      flex-direction: column;
+      align-items: center;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .pricing-card h2 {
+      font-size: 5vW;
+  }
+
+  .pricing-header h1 {
+      font-size: 7vw;
+  }
+
 }
