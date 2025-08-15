@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.13259988"
-     inkscape:cx="3310.7118"
-     inkscape:cy="1383.8625"
+     inkscape:zoom="0.18752455"
+     inkscape:cx="2591.6607"
+     inkscape:cy="1250.5029"
      inkscape:window-width="1854"
      inkscape:window-height="1011"
      inkscape:window-x="66"
@@ -947,7 +947,7 @@
        x="-109.06249"
        y="-107.904" />
     <rect
-       style="fill:#596b80;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583;filter:url(#filter8994)"
+       style="fill:#e6e6ec;fill-opacity:0.99947393;fill-rule:evenodd;stroke-width:0.264583"
        id="rect1514"
        width="150"
        height="50"
@@ -955,7 +955,7 @@
        y="71.25605"
        inkscape:label="rect1514" />
     <rect
-       style="fill:#596b80;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583;filter:url(#filter9012)"
+       style="fill:#e6e6ec;fill-opacity:0.99947393;fill-rule:evenodd;stroke-width:0.264583"
        id="rect1514-3"
        width="150"
        height="50"
@@ -963,7 +963,7 @@
        y="71.25605"
        inkscape:label="rect1514" />
     <rect
-       style="fill:#596b80;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583;filter:url(#filter9048)"
+       style="fill:#e6e6ec;fill-opacity:0.99947393;fill-rule:evenodd;stroke-width:0.264583"
        id="rect1514-6"
        width="150"
        height="50"
@@ -971,7 +971,7 @@
        y="141.25604"
        inkscape:label="rect1514" />
     <rect
-       style="fill:#596b80;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583;filter:url(#filter9030)"
+       style="fill:#e6e6ec;fill-opacity:0.99947393;fill-rule:evenodd;stroke-width:0.264583"
        id="rect1514-3-7"
        width="150"
        height="50"
@@ -979,7 +979,7 @@
        y="141.25604"
        inkscape:label="rect1514" />
     <rect
-       style="fill:#596b80;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583;filter:url(#filter9066)"
+       style="fill:#e6e6ec;fill-opacity:0.99947393;fill-rule:evenodd;stroke-width:0.264583"
        id="rect1514-6-5"
        width="150"
        height="50"
@@ -987,7 +987,7 @@
        y="211.25604"
        inkscape:label="rect1514" />
     <rect
-       style="fill:#596b80;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583;filter:url(#filter9084)"
+       style="fill:#e6e6ec;fill-opacity:0.99947393;fill-rule:evenodd;stroke-width:0.264583"
        id="rect1514-3-7-3"
        width="150"
        height="50"
@@ -996,19 +996,14 @@
        inkscape:label="rect1514" />
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,-27.330977,-208.74395)"
-       id="text1941"
-       style="white-space:pre;shape-inside:url(#rect1943);fill:#596b80;fill-opacity:1;fill-rule:evenodd" />
-    <text
-       xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-8.9469099,-252.09885)"
        id="text1947"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:800px;font-family:FreeSerif;-inkscape-font-specification:FreeSerif;white-space:pre;shape-inside:url(#rect1949);fill:#596b80;fill-opacity:1;fill-rule:evenodd;filter:url(#filter9639)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:800px;font-family:FreeSerif;-inkscape-font-specification:FreeSerif;white-space:pre;shape-inside:url(#rect1949);display:inline;fill:#e6e6ec;fill-opacity:0.99947393;fill-rule:evenodd"><tspan
          x="1886.3496"
          y="1823.3105"
-         id="tspan14813"><tspan
+         id="tspan7712"><tspan
            dx="0 0 0 0 0 -0.00012207031 0 0.00018310547 -0.00018310547"
-           id="tspan14811">EKO-PROJEKT
+           id="tspan7710">EKO-PROJEKT
 </tspan></tspan></text>
   </g>
 </svg>
