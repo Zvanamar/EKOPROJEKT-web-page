@@ -1,0 +1,154 @@
+
+<html lang="en">
+  <head>
+    <link rel="icon" href="images/EKO-PROJEKT_4.png" type="image/png">
+    <title>Eko-Projekt</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pricing/pricing.css">
+  </head>
+
+
+  <body>
+    <header class="eko-header">
+      <div class="logo-container">
+        <img src="images/EKO_PROJEKT_3.png" alt="Eko-Project Logo" class="logo">
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" >Features</a></li>
+          <li><a href="solutions.html" >Solutions</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button id="demo-btn" class="demo-btn">Request Demo</button>
+      </div>
+    </header> 
+
+    <main>
+        <div class="pricing-container">
+            <div class="pricing-header">
+                <h1>Simple, Transparent Pricing</h1>
+                <p>Get started with our enterprise resource management solution with our 3-month trial. No credit card required. Cancel anytime.</p>
+            </div>
+
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h2>Starter</h2>
+                    <div class="price">€0 <span>/first 3 months</span></div>
+                    <ul>
+                        <li>Up to 10 users</li>
+                        <li>Core ERP features</li>
+                        <li>Basic reporting</li>
+                        <li>Email support</li>
+                        <li>1GB storage</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card">
+                    <h2>Professional</h2>
+                    <div class="price">€15 <span>/user/month after trial</span></div>
+                    <ul>
+                        <li>Unlimited users</li>
+                        <li>Advanced ERP features</li>
+                        <li>Custom reporting</li>
+                        <li>Priority support</li>
+                        <li>10GB storage</li>
+                        <li>API access</li>
+                        <li>Monthly product updates</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card">
+                    <h2>Enterprise</h2>
+                    <ul>
+                        <li>Unlimited users</li>
+                        <li>All Professional features</li>
+                        <li>Dedicated account manager</li>
+                        <li>24/7 premium support</li>
+                        <li>Unlimited storage</li>
+                        <li>Custom integrations</li>
+                        <li>On-premise option</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <h3>How does the free trial work?</h3>
+                    <p>Your trial lasts for 3 months with access to all Professional plan features. No credit card is required to start. At the end of the trial period, you can choose to subscribe or your account will be paused.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What payment methods do you accept?</h3>
+                    <p>We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for annual payments.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Can I change plans later?</h3>
+                    <p>Yes, you can upgrade, downgrade, or cancel your plan at any time. Changes will take effect at the start of your next billing cycle.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Is there a discount for annual payments?</h3>
+                    <p>Yes! We offer a 10% discount if you choose to pay annually instead of monthly.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="contactDialog" class="dialog">
+      <div class="dialog-content">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone">
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" rows="4" required></textarea>
+          </div>
+          <div class="button-group">
+            <button type="button" id="cancelBtn">Cancel</button>
+            <button type="submit" id="sendBtn">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+
+</html>
+
+<script>
+
+    document.getElementById('demo-btn').addEventListener('click', function() {
+    document.getElementById('contactDialog').style.display = 'flex';
+  });
+
+  document.getElementById('cancelBtn').addEventListener('click', function() {
+    document.getElementById('contactDialog').style.display = 'none';
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
+    
+    // Here you would send the data to your backend
+    console.log({email, phone, message});
+    
+    // For now, just close the dialog
+    document.getElementById('contactDialog').style.display = 'none';
+    alert('Message sent! (This is just a demo)');
+  });
+</script>

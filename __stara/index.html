@@ -1,0 +1,163 @@
+<html lang="en">
+  <head>
+    <link rel="icon" href="images/EKO-PROJEKT_4.png" type="image/png">
+    <title>Eko-Projekt</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="images/features.css">
+  </head>
+
+
+  <body>
+    <header class="eko-header">
+      <div class="logo-container">
+        <img src="images/EKO_PROJEKT_LOGO.svg" alt="Eko-Project Logo" class="logo">
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" >Features</a></li>
+          <li><a href="solutions.html" >Solutions</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button id="demo-btn" class="demo-btn">Request Demo</button>
+      </div>
+    </header> 
+    
+    <video id="video-background" autoplay loop muted playsinline preload="auto" >
+      <source src="images/video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+    <main>
+
+      <div class="images">
+        <object type="image/svg+xml" data="images/ekofour_bez_sjena.svg" class="features-img-1" id="svg-object"></object>
+      </div>
+
+      <div class="feature" id="KTM">
+        <h3>Kanban Task Management</h3>
+        <p>Visualize workflows with our intuitive Kanban boards. Move tasks through customizable stages, assign team members, and track progress in real-time.</p>
+      </div>
+      
+      <div class="feature" id="LGC">
+        <h3>Live Gantt Charts</h3>
+        <p>Plan and monitor projects with dynamic Gantt charts that update automatically. See dependencies, timelines, and resource allocation at a glance.</p>
+      </div>
+      
+      <div class="feature" id="EDM">
+        <h3>ERP Data Management</h3>
+        <p>Centralize all your enterprise data with our powerful ERP module. Integrate finance, inventory, HR, and more into one unified system.</p>
+      </div>
+      
+      <div class="feature" id="CBM">
+        <h3>Custom Business Models</h3>
+        <p>Tailor EkoFour to your unique needs. We build custom modules on request to fit your specific business processes and requirements.</p>
+      </div>
+      
+    </main>
+
+    <div id="contactDialog" class="dialog">
+      <div class="dialog-content">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone">
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" rows="4" required></textarea>
+          </div>
+          <div class="button-group">
+            <button type="button" id="cancelBtn">Cancel</button>
+            <button type="submit" id="sendBtn">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+
+</html>
+
+
+<script>
+window.addEventListener('load', function() {
+    const video = document.getElementById('video-background');
+    video.src = 'images/video.mp4';
+    video.load();
+});
+document.addEventListener('DOMContentLoaded', function() {
+  // Handle contact form elements
+  const demoBtn = document.getElementById('demo-btn');
+  if (demoBtn) {
+    demoBtn.addEventListener('click', function() {
+      const dialog = document.getElementById('contactDialog');
+      if (dialog) dialog.style.display = 'flex';
+    });
+  }
+
+  const cancelBtn = document.getElementById('cancelBtn');
+  if (cancelBtn) {
+    cancelBtn.addEventListener('click', function() {
+      const dialog = document.getElementById('contactDialog');
+      if (dialog) dialog.style.display = 'none';
+    });
+  }
+
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const message = document.getElementById('message').value;
+      console.log({email, phone, message});
+      document.getElementById('contactDialog').style.display = 'none';
+      alert('Message sent! (This is just a demo)');
+    });
+  }
+
+  // Handle SVG
+  const svgObject = document.getElementById('svg-object');
+  if (svgObject) {
+    if (svgObject.contentDocument) {
+      initSVG();
+    } else {
+      svgObject.addEventListener('load', initSVG);
+    }
+  }
+
+  function initSVG() {
+    try {
+      const svgDoc = document.getElementById('svg-object').getSVGDocument();
+      if (!svgDoc) {
+        console.error("Couldn't access SVG document");
+        return;
+      }
+      
+      [['tr','KTM'], ['tl','LGC'], ['bl','EDM'], ['br','CBM']].forEach(id => {
+        const group = svgDoc.getElementById(id[0]);
+        const division = document.getElementById(id[1]);
+        if (group && division) {
+          group.addEventListener('mouseover', () => {
+            division.classList.add('active');
+            group.setAttribute('transform', 'scale(1.02)');
+          });
+          group.addEventListener('mouseout', () => {
+            division.classList.remove('active');
+            group.setAttribute('transform', 'scale(1)');
+          });
+        }
+      });
+    } catch (e) {
+      console.error("SVG Error:", e);
+    }
+  }
+});
+</script>
