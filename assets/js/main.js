@@ -421,17 +421,27 @@
 						
 						if (group) {
 							// Click handler
-							group.addEventListener('click', function(e) {
+							group.addEventListener('click', handleSVGClick);
+							group.addEventListener('touchend', handleSVGClick);
+
+							function handleSVGClick(e) {
+								// Prevent default for touch events to avoid delay
+								if (e.type === 'touchend') {
+									e.preventDefault();
+								}
 								e.stopPropagation();
 								
 								var $article = $('#' + articleId);
 								
-								if ($article.hasClass('active')) {
-									$main._hide(true);
-								} else {
-									$main._show(articleId);
-								}
-							});
+								// Small delay for mobile to avoid accidental touches
+								setTimeout(function() {
+									if ($article.hasClass('active')) {
+										$main._hide(true);
+									} else {
+										$main._show(articleId);
+									}
+								}, 100); // 100ms delay
+							}
 							// Hover effects
 							group.addEventListener('mouseover', function() {
 								group.setAttribute('transform', 'scale(1.02)');
