@@ -288,21 +288,20 @@
 
 		// Articles.
 			$main_articles.each(function() {
-
 				var $this = $(this);
 
-				// Close.
-					$('<div class="close">Close</div>')
-						.appendTo($this)
-						.on('click', function() {
-							location.hash = '';
-						});
-
-				// Prevent clicks from inside article from bubbling.
-					$this.on('click', function(event) {
-						event.stopPropagation();
+				// Close button
+				$('<div class="close">Close</div>')
+					.appendTo($this)
+					.on('click', function(e) {
+						e.stopPropagation(); // Prevent event from reaching body click handler
+						$main._hide(true);  // Use the proper hide method
 					});
 
+				// Prevent clicks from inside article from bubbling.
+				$this.on('click', function(event) {
+					event.stopPropagation();
+				});
 			});
 
 		// Events.
@@ -398,45 +397,57 @@
 						$main._show(location.hash.substr(1), true);
 					});
 
+			// Handle SVG
+			var $svgObject = $('#svg-object');
+			if ($svgObject.length) {
+				if ($svgObject[0].contentDocument) {
+					initSVG();
+				} else {
+					$svgObject.on('load', initSVG);
+				}
+			}
+
+			function initSVG() {
+				try {
+					var svgDoc = $svgObject[0].getSVGDocument();
+					if (!svgDoc) {
+						console.error("Couldn't access SVG document");
+						return;
+					}
+					
+					[['tr','KTM'], ['tl','LGC'], ['bl','EDM'], ['br','CBM']].forEach(function(id) {
+						var group = svgDoc.getElementById(id[0]);
+						var articleId = id[1];
+						
+						if (group) {
+							// Hover effects
+							group.addEventListener('mouseover', function() {
+								group.setAttribute('transform', 'scale(1.02)');
+							});
+							group.addEventListener('mouseout', function() {
+								group.setAttribute('transform', 'scale(1)');
+							});
+							
+							// Click handler
+							group.addEventListener('click', function(e) {
+								e.stopPropagation();
+								
+								var $article = $('#' + articleId);
+								
+								if ($article.hasClass('active')) {
+									$main._hide(true);
+								} else {
+									$main._show(articleId);
+								}
+							});
+							
+							// Change cursor to pointer
+							group.style.cursor = 'pointer';
+						}
+					});
+				} catch (e) {
+					console.error("SVG Error:", e);
+				}
+			}
+
 })(jQuery);
-
-document.addEventListener('DOMContentLoaded', function() {
-  
-
-  // Handle SVG
-  const svgObject = document.getElementById('svg-object');
-  if (svgObject) {
-    if (svgObject.contentDocument) {
-      initSVG();
-    } else {
-      svgObject.addEventListener('load', initSVG);
-    }
-  }
-
-  function initSVG() {
-    try {
-      const svgDoc = document.getElementById('svg-object').getSVGDocument();
-      if (!svgDoc) {
-        console.error("Couldn't access SVG document");
-        return;
-      }
-      
-      [['tr','KTM'], ['tl','LGC'], ['bl','EDM'], ['br','CBM']].forEach(id => {
-        const group = svgDoc.getElementById(id[0]);
-        const division = document.getElementById(id[1]);
-        if (group && division) {
-          group.addEventListener('mouseover', () => {
-            division.classList.add('active');
-            group.setAttribute('transform', 'scale(1.02)');
-          });
-          group.addEventListener('mouseout', () => {
-            division.classList.remove('active');
-            group.setAttribute('transform', 'scale(1)');
-          });
-        }
-      });
-    } catch (e) {
-      console.error("SVG Error:", e);
-    }
-  }
-});
