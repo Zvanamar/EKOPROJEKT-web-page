@@ -325,6 +325,10 @@ top: 32%;
   font-size: 1.2rem;
 }
 
+.svg-touch-wrapper {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
 
 
 /* Responsive Design */
