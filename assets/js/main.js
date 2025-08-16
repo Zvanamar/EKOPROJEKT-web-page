@@ -420,14 +420,6 @@
 						var articleId = id[1];
 						
 						if (group) {
-							// Hover effects
-							group.addEventListener('mouseover', function() {
-								group.setAttribute('transform', 'scale(1.02)');
-							});
-							group.addEventListener('mouseout', function() {
-								group.setAttribute('transform', 'scale(1)');
-							});
-							
 							// Click handler
 							group.addEventListener('click', function(e) {
 								e.stopPropagation();
@@ -440,6 +432,14 @@
 									$main._show(articleId);
 								}
 							});
+							// Hover effects
+							group.addEventListener('mouseover', function() {
+								group.setAttribute('transform', 'scale(1.02)');
+							});
+							group.addEventListener('mouseout', function() {
+								group.setAttribute('transform', 'scale(1)');
+							});
+							
 							
 							// Change cursor to pointer
 							group.style.cursor = 'pointer';
