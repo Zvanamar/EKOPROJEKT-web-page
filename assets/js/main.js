@@ -459,5 +459,63 @@
 					console.error("SVG Error:", e);
 				}
 			}
-
 })(jQuery);
+
+// Form submission with JavaScript
+document.getElementById("form").addEventListener("submit", async function(e) {
+	e.preventDefault();
+
+	const formData = new FormData(this);
+	const submitButton = this.querySelector('input[type="submit"]');
+	const originalText = submitButton.textContent;
+
+	// Convert FormData to JSON
+	const jsonData = {};
+	formData.forEach((value, key) => {
+	jsonData[key] = value;
+	});
+
+	try {
+	submitButton.textContent = "Sending...";
+	submitButton.disabled = true;
+
+	const response = await fetch("https://api.web3forms.com/submit", {
+		method: "POST",
+		headers: {
+		"Content-Type": "application/json",
+		"Accept": "application/json"
+		},
+		body: JSON.stringify(jsonData)
+	});
+
+	const result = await response.json();
+
+	if (result.success) {
+	showNotification("✅ Poruka je uspješno poslana!");
+	this.reset();
+	} else {
+	showNotification("❌ Slanje poruke nije uspjelo. Pokušajte ponovno.", true);
+	}
+
+	} catch (error) {
+	showNotification("⚠️ Došlo je do greške. Pokušajte ponovno.", true);
+	} finally {
+	submitButton.textContent = originalText;
+	submitButton.disabled = false;
+	}
+});
+
+function showNotification(message, isError = false) {
+  const notification = document.getElementById("form-notification");
+  notification.textContent = message;
+  notification.classList.toggle("error", isError);
+  notification.style.display = "block";
+  notification.style.opacity = "1";
+
+  setTimeout(() => {
+    notification.style.opacity = "0";
+    setTimeout(() => {
+      notification.style.display = "none";
+    }, 500);
+  }, 4000);
+}
